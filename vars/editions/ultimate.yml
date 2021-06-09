@@ -1,0 +1,7 @@
+---
+intellij_package_filename: 'ideaIU-{{ intellij_version }}.tar.gz'
+intellij_application_name: IntelliJ IDEA
+# Dockbar group
+intellij_startup_wm_class: jetbrains-idea
+intellij_desktop_filename: jetbrains-idea-ce.desktop
+intellij_user_dir: "IntelliJIdea{{ intellij_version | regex_replace('^([0-9]+\\.[0-9]+)(\\..*)?$', '\\1') }}"

@@ -1,0 +1,21 @@
+---
+dependency:
+  name: galaxy
+  options:
+    role-file: ${MOLECULE_PROJECT_DIRECTORY}/.config/molecule/requirements.yml
+driver:
+  name: docker
+provisioner:
+  name: ansible
+  options:
+      vvv: True
+  playbooks:
+      prepare: ${MOLECULE_PROJECT_DIRECTORY}/.config/molecule/prepare.yml
+      converge: ${MOLECULE_PROJECT_DIRECTORY}/.config/molecule/converge.yml
+      verify: ${MOLECULE_PROJECT_DIRECTORY}/.config/molecule/verify.yml
+verifier:
+  name: ansible
+lint: |
+  set -e
+  yamllint .
+  ansible-lint .

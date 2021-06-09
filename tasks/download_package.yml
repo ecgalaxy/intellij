@@ -1,0 +1,30 @@
+---
+
+- name: Create download directory
+  file:
+    state: directory
+    mode: 'u=rwx,go=rx'
+    dest: "{{ intellij_download_dir }}"
+
+- name: Assert edition vars
+  assert:
+    that:
+      - "intellij_edition in ('community', 'ultimate')"
+
+- name: Load edition vars
+  include_vars: '../vars/editions/{{ intellij_edition }}.yml'
+
+- name: stat install dir
+  stat:
+    path: "{{ intellij_install_dir }}/bin"
+  register: stat_install_dir
+
+- name: Download IntelliJ IDEA
+  get_url:
+    url: "{{ intellij_download_url }}/{{ intellij_package_filename }}"
+    dest: "{{ intellij_download_dir }}/{{ intellij_package_filename }}"
+    checksum: "{{ intellij_package_checksum }}"
+    force: false
+    timeout: 600
+    mode: 'u=rw,go=r'
+  when: not stat_install_dir.stat.exists

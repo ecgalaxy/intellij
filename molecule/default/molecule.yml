@@ -1,0 +1,9 @@
+---
+platforms:
+  - name: amazonlinux
+    image: geerlingguy/docker-amazonlinux2-ansible:latest
+    pre_build_image: false
+    env:
+      http_proxy: "${http_proxy}"
+      https_proxy: "${https_proxy}"
+      no_proxy: "${no_proxy}"

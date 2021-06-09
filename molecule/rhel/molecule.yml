@@ -1,0 +1,16 @@
+---
+platforms:
+  - name: centos7
+    image: geerlingguy/docker-centos7-ansible:latest
+    pre_build_image: true
+    env:
+      http_proxy: "${http_proxy}"
+      https_proxy: "${https_proxy}"
+      no_proxy: "${no_proxy}"
+  - name: centos8
+    image: geerlingguy/docker-centos8-ansible:latest
+    pre_build_image: true
+    env:
+      http_proxy: "${http_proxy}"
+      https_proxy: "${https_proxy}"
+      no_proxy: "${no_proxy}"
