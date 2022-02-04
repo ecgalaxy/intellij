@@ -1,5 +1,2 @@
 ---
-- src: "https://citnet.tech.ec.europa.eu/CITnet/stash/scm/ecgalaxy/common_packages.git"
-  scm: git
-  name: common_packages
-  version: master
+- ecgalaxy.common_packages

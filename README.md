@@ -1,7 +1,7 @@
 ECGALAXY IntelliJ role
 =======================
 
-Installs IDEA IntelliJ (Community|Ultimate) - https://www.jetbrains.com/idea/ 
+Installs IDEA IntelliJ (Community|Ultimate) - https://www.jetbrains.com/idea/
 
 Requirements
 ------------
@@ -13,7 +13,8 @@ Role Variables
 
 - `intellij_version`: IntelliJ version to install
 - `intellij_edition`: (community|ultimate)
-- `intellij_package_checksum`: the checksum related to the intellij binary.
+- `intellij_package_checksum`: the checksum related to the IntelliJ binary.
+
 The value can be retrieved by appending `.sha256` to the package's url:
 https://download.jetbrains.com/idea/ideaIC-2020.1.2.tar.gz.sha256
 

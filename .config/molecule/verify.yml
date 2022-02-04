@@ -2,6 +2,6 @@
   hosts: all
   gather_facts: true
   tasks:
-    - name: "Include Intellij tests"
+    - name: Include Intellij tests
       include_role:
         name: "test_intellij_installation"

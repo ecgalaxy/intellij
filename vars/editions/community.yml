@@ -1,5 +1,5 @@
 ---
-intellij_package_filename: 'ideaIC-{{ intellij_version }}.tar.gz'
+intellij_package_filename: "ideaIC-{{ intellij_version }}.tar.gz"
 intellij_application_name: IntelliJ IDEA Community Edition
 # Dockbar group
 intellij_startup_wm_class: jetbrains-idea-ce

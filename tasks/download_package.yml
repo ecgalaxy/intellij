@@ -1,5 +1,4 @@
 ---
-
 - name: Create download directory
   file:
     state: directory
@@ -14,7 +13,7 @@
 - name: Load edition vars
   include_vars: '../vars/editions/{{ intellij_edition }}.yml'
 
-- name: stat install dir
+- name: Stat install dir
   stat:
     path: "{{ intellij_install_dir }}/bin"
   register: stat_install_dir

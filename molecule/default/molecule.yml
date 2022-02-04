@@ -1,8 +1,8 @@
 ---
 platforms:
-  - name: amazonlinux
+  - name: amazonlinux2-${CI_JOB_ID:-0}
     image: geerlingguy/docker-amazonlinux2-ansible:latest
-    pre_build_image: false
+    pre_build_image: true
     env:
       http_proxy: "${http_proxy}"
       https_proxy: "${https_proxy}"

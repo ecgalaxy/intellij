@@ -1,13 +1,13 @@
 ---
 platforms:
-  - name: ubuntu1804
+  - name: ubuntu1804-${CI_JOB_ID:-0}
     image: geerlingguy/docker-ubuntu1804-ansible:latest
     pre_build_image: true
     env:
       http_proxy: "${http_proxy}"
       https_proxy: "${https_proxy}"
       no_proxy: "${no_proxy}"
-  - name: ubuntu2004
+  - name: ubuntu2004-${CI_JOB_ID:-0}
     image: geerlingguy/docker-ubuntu2004-ansible:latest
     pre_build_image: true
     env:

@@ -1,5 +1,4 @@
 ---
-
 - name: Include OS family specific vars
   with_first_found:
     - "../vars/os-families/{{ ansible_os_family }}.yml"
@@ -7,22 +6,21 @@
   include_vars: "{{ item }}"
 
 - name: Install dependencies
-  become: true
   package:
     name: "{{ intellij_dependencies }}"
     state: present
+  become: true
 
 - name: Create IntelliJ IDEA installation directory
-  become: true
   file:
     state: directory
     owner: root
     group: root
     mode: 'u=rwx,go=rx'
     dest: "{{ intellij_install_dir }}"
+  become: true
 
 - name: Install IntelliJ IDEA
-  become: true
   unarchive:
     src: "{{ intellij_download_dir }}/{{ intellij_package_filename }}"
     remote_src: true
@@ -32,9 +30,9 @@
     group: root
     mode: 'o-w'
     creates: "{{ intellij_install_dir }}/bin"
+  become: true
 
 - name: Create bin link
-  become: true
   file:
     src: "{{ intellij_install_dir }}/bin/idea.sh"
     dest: /usr/local/bin/idea
@@ -42,12 +40,13 @@
     owner: root
     group: root
     mode: 'u=rwx,go=rx'
+  become: true
 
 - name: Install IntelliJ IDEA desktop file
-  become: true
   template:
     src: jetbrains-idea.desktop.j2
     dest: "/usr/share/applications/{{ intellij_desktop_filename }}"
     owner: root
     group: root
     mode: 'u=rw,go=r'
+  become: true

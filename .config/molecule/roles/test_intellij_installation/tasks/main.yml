@@ -1,5 +1,4 @@
 ---
-
 - name: Include role defaults vars
   with_first_found:
     - "../../../../defaults/main.yml"
@@ -12,8 +11,8 @@
   stat:
     path: "{{ intellij_install_dir }}"
   register: directory
- 
-- name: "Assert that Intellij installation dir is present"
+
+- name: Assert that IntelliJ installation dir is present
   assert:
     that:
       - "directory.stat.exists"
@@ -22,12 +21,12 @@
       - "directory.stat.pw_name == 'root'"
       - "directory.stat.gr_name == 'root'"
 
-- name: "Get stat on Intellij application menu entry"
+- name: Get stat on IntelliJ application menu entry
   stat:
     path: "/usr/share/applications/{{ intellij_desktop_filename }}"
   register: file
 
-- name: "Assert that Intellij application menu entry is present"
+- name: Assert that IntelliJ application menu entry is present
   assert:
     that:
       - "file.stat.exists"

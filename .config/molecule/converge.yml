@@ -3,7 +3,7 @@
   hosts: all
   become: true
   roles:
-    - role: common_packages
+    - role: ecgalaxy.common_packages
     - role: intellij
   environment:
     http_proxy: "{{ lookup('env', 'http_proxy') }}"
