@@ -13,10 +13,10 @@ Role Variables
 
 - `intellij_version`: IntelliJ version to install
 - `intellij_edition`: (community|ultimate)
-- `intellij_package_checksum`: the checksum related to the IntelliJ binary.
+- `intellij_package_checksum`: the checksum related to the IntelliJ archive.
 
-The value can be retrieved by appending `.sha256` to the package's url:
-https://download.jetbrains.com/idea/ideaIC-2020.1.2.tar.gz.sha256
+The value can be retrieved by appending `.sha256` to the archive's URL:
+https://download.jetbrains.com/idea/ideaIC-2021.3.2.tar.gz.sha256
 
 Dependencies
 ------------
@@ -34,7 +34,9 @@ Example Playbook
 License
 -------
 
-EUPL-1.2
+Copyright the European Union 2022.
+
+Licensed under the EUPL-1.2 or later.
 
 Author Information
 ------------------
