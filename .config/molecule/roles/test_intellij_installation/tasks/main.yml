@@ -2,18 +2,18 @@
 - name: Include role defaults vars
   with_first_found:
     - "../../../../defaults/main.yml"
-  include_vars: "{{ item }}"
+  ansible.builtin.include_vars: "{{ item }}"
 
 - name: Load edition vars
-  include_vars: '../../../../vars/editions/{{ intellij_edition }}.yml'
+  ansible.builtin.include_vars: '../../../../vars/editions/{{ intellij_edition }}.yml'
 
 - name: "Get stat '{{ intellij_install_dir }}'"
-  stat:
+  ansible.builtin.stat:
     path: "{{ intellij_install_dir }}"
   register: directory
 
 - name: Assert that IntelliJ installation dir is present
-  assert:
+  ansible.builtin.assert:
     that:
       - "directory.stat.exists"
       - "directory.stat.isdir"
@@ -22,11 +22,11 @@
       - "directory.stat.gr_name == 'root'"
 
 - name: Get stat on IntelliJ application menu entry
-  stat:
+  ansible.builtin.stat:
     path: "/usr/share/applications/{{ intellij_desktop_filename }}"
   register: file
 
 - name: Assert that IntelliJ application menu entry is present
-  assert:
+  ansible.builtin.assert:
     that:
       - "file.stat.exists"

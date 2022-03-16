@@ -1,3 +1,6 @@
 ---
-- import_tasks: download_package.yml
-- import_tasks: install_intellij.yml
+- name: Download
+  ansible.builtin.import_tasks: download_package.yml
+
+- name: Install
+  ansible.builtin.import_tasks: install_intellij.yml

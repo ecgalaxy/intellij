@@ -3,28 +3,28 @@
   with_first_found:
     - "../vars/os-families/{{ ansible_os_family }}.yml"
     - ../vars/os-families/default.yml
-  include_vars: "{{ item }}"
+  ansible.builtin.include_vars: "{{ item }}"
 
 - name: Install dependencies
-  package:
+  ansible.builtin.package:
     name: "{{ intellij_dependencies }}"
     state: present
   become: true
 
 - name: Stat installation directory
-  stat:
+  ansible.builtin.stat:
     path: "{{ intellij_install_dir }}"
   register: install_dir
 
 - name: Delete existing IntelliJ installation, if different
-  file:
+  ansible.builtin.file:
     state: absent
     path: "{{ intellij_base_dir }}"
   become: true
   when: not install_dir.stat.exists
 
 - name: Create IntelliJ IDEA installation directory
-  file:
+  ansible.builtin.file:
     state: directory
     owner: root
     group: root
@@ -33,7 +33,7 @@
   become: true
 
 - name: Install IntelliJ IDEA
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ intellij_download_dir }}/{{ intellij_package_filename }}"
     remote_src: true
     extra_opts: '--strip-components=1'
@@ -45,7 +45,7 @@
   become: true
 
 - name: Create bin link
-  file:
+  ansible.builtin.file:
     src: "{{ intellij_install_dir }}/bin/idea.sh"
     dest: /usr/local/bin/idea
     state: link
@@ -55,7 +55,7 @@
   become: true
 
 - name: Install IntelliJ IDEA desktop file
-  template:
+  ansible.builtin.template:
     src: jetbrains-idea.desktop.j2
     dest: "/usr/share/applications/{{ intellij_desktop_filename }}"
     owner: root

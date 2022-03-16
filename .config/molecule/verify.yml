@@ -3,5 +3,5 @@
   gather_facts: true
   tasks:
     - name: Include Intellij tests
-      include_role:
+      ansible.builtin.include_role:
         name: "test_intellij_installation"

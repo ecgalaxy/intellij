@@ -1,25 +1,25 @@
 ---
 - name: Create download directory
-  file:
+  ansible.builtin.file:
     state: directory
     mode: 'u=rwx,go=rx'
     dest: "{{ intellij_download_dir }}"
 
 - name: Assert edition vars
-  assert:
+  ansible.builtin.assert:
     that:
       - "intellij_edition in ('community', 'ultimate')"
 
 - name: Load edition vars
-  include_vars: '../vars/editions/{{ intellij_edition }}.yml'
+  ansible.builtin.include_vars: '../vars/editions/{{ intellij_edition }}.yml'
 
 - name: Stat install dir
-  stat:
+  ansible.builtin.stat:
     path: "{{ intellij_install_dir }}/bin"
   register: stat_install_dir
 
 - name: Download IntelliJ IDEA
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ intellij_download_url }}/{{ intellij_package_filename }}"
     dest: "{{ intellij_download_dir }}/{{ intellij_package_filename }}"
     checksum: "{{ intellij_package_checksum }}"
