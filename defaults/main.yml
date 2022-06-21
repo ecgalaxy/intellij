@@ -6,3 +6,4 @@ intellij_download_dir: "/tmp/intellij-download-dir"
 intellij_download_url: "https://download.jetbrains.com/idea"
 intellij_base_dir: "/opt/intellij"
 intellij_install_dir: "{{ intellij_base_dir }}/{{ intellij_version }}"
+intellij_force_installation: false

@@ -1,6 +1,16 @@
 ---
-- name: Download
-  ansible.builtin.import_tasks: download_package.yml
+- name: Check if intellij is already installed
+  ansible.builtin.stat:
+    path: "{{ intellij_install_dir }}"
+  register: intellij_already_installed
 
 - name: Install
-  ansible.builtin.import_tasks: install_intellij.yml
+  block:
+
+  - name: Download
+    ansible.builtin.import_tasks: download_package.yml
+
+  - name: Install
+    ansible.builtin.import_tasks: install_intellij.yml
+
+  when: not intellij_already_installed.stat.exists or intellij_force_installation
