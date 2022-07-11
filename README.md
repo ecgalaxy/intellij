@@ -42,3 +42,5 @@ Author Information
 ------------------
 
 ECGALAXY team.
+
+NOTE: This role is based on [original work by John Freeman](https://github.com/gantsign/ansible-role-intellij).
