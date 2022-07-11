@@ -15,8 +15,8 @@ Role Variables
 - `intellij_edition`: (community|ultimate)
 - `intellij_package_checksum`: the checksum related to the IntelliJ archive.
 
-The value can be retrieved by appending `.sha256` to the archive's URL:
-https://download.jetbrains.com/idea/ideaIC-2021.3.2.tar.gz.sha256
+The value can be retrieved by appending `.sha256` to the archive's URL, e.g.:
+https://download.jetbrains.com/idea/ideaIC-2022.1.3.tar.gz.sha256
 
 Dependencies
 ------------
