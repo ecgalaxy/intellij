@@ -3,7 +3,7 @@ platforms:
   - name: amazonlinux2-${CI_JOB_ID:-0}
     image: code.europa.eu:4567/ecgalaxy/amazonlinux2-ansible:latest
     pre_build_image: true
-    env:
+    environment:
       http_proxy: "${http_proxy}"
       https_proxy: "${https_proxy}"
       no_proxy: "${no_proxy}"

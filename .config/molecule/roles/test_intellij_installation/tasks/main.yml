@@ -7,7 +7,7 @@
 - name: Load edition vars
   ansible.builtin.include_vars: '../../../../vars/editions/{{ intellij_edition }}.yml'
 
-- name: "Get stat '{{ intellij_install_dir }}'"
+- name: "Get stat {{ intellij_install_dir }}"
   ansible.builtin.stat:
     path: "{{ intellij_install_dir }}"
   register: directory
