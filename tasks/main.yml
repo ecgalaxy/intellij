@@ -5,6 +5,7 @@
   register: intellij_already_installed
 
 - name: Install
+  when: not intellij_already_installed.stat.exists or intellij_force_installation
   block:
 
   - name: Download
@@ -12,5 +13,3 @@
 
   - name: Install
     ansible.builtin.import_tasks: install_intellij.yml
-
-  when: not intellij_already_installed.stat.exists or intellij_force_installation
