@@ -6,7 +6,7 @@ Installs IDEA IntelliJ (Community|Ultimate) - https://www.jetbrains.com/idea/
 Requirements
 ------------
 
-None.
+- The `unzip` command, which can be provided by the `ecgalaxy.common_packages` role.
 
 Role Variables
 --------------
@@ -21,13 +21,14 @@ https://download.jetbrains.com/idea/ideaIC-2022.2.1.tar.gz.sha256
 Dependencies
 ------------
 
-* ecgalaxy.common_packages
+* optional: ecgalaxy.common_packages
 
 Example Playbook
 ----------------
 
     - hosts: all
       roles:
+        - ecgalaxy.bootstrap
         - ecgalaxy.common_packages
         - ecgalaxy.intellij
 
