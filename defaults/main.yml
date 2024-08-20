@@ -1,7 +1,7 @@
 ---
-intellij_version: "2022.2.1"
+intellij_version: "2024.2.0.1"
 intellij_edition: "community"
-intellij_package_checksum: "sha256:93eb9391a898aad164ca47965e0445cbf0f04d7062b6875c4e4a3136799ee6cf"
+intellij_package_checksum: "sha256:f6a6a1e5d1603a13a3f9a6d3921a16bed3e54fbe803fbf851630104216e2b674"
 intellij_download_dir: "/tmp/intellij-download-dir"
 intellij_download_url: "https://download.jetbrains.com/idea"
 intellij_base_dir: "/opt/intellij"
